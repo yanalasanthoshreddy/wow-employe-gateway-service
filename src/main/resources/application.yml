@@ -1,0 +1,2 @@
+server:  port: 9999spring:  application:    name: wow-employee-gateway-service      cloud:    gateway:      routes:      - id: wow-employee-service        uri: http://localhost:8081/        predicates:        - Path=/employee/**      - id: wow-pharmacy-service        uri: http://localhost:8082/        predicates:        - Path=/pharmacy/**
+eureka:  client:    eureka-server-port: 8761    fetch-registry: true    register-with-eureka: true    service-url:      defaultZone: http://127.0.0.1:8761/eureka
