@@ -18,7 +18,7 @@ spring:
         - name: Hystrix
           args:
              name:  EMPLOYEE-SERVICE
-             fallbackUri: forward:/employeeFallBack
+             fallbackuri: forward:/employeeFallBack
       - id: PHARMACY-SERVICE
         uri: lb://PHARMACY-SERVICE
         predicates:
@@ -28,15 +28,12 @@ spring:
         - name: Hystrix
           args:
              name:  PHARMACY-SERVICE
-             fallbackUri: forward:/pharmacyFallBack
+             fallbackuri: forward:/pharmacyFallBack
 
-hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 2000
             
 management:
-  endpoint:
-    web:
-      exposure:
-        include: hystrix.stream
+  endpoints:    web:      exposure:        include:  hystrix.stream
+    
 
 eureka:
   client:
